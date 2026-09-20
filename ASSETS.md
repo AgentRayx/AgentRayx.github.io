@@ -1,6 +1,6 @@
 # Mascota Byte
 
-Archivo: `dist/assets/byte-htb.png`.
+Archivo: `dist/byte-htb.png`.
 
 Generada con la herramienta integrada de ImageGen. PNG con transparencia, 1280 × 1280. Se usa como mascota propia del blog; lleva una camiseta con el logo de HTB a petición del autor.
 

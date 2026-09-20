@@ -20,7 +20,7 @@ El flujo publica únicamente `dist`. Los enlaces relativos funcionan también en
 
 Cada writeup tiene una **portada independiente**. En **Portada del writeup → Subir portada**, elige un PNG, JPG o WebP de hasta 8 MB. Se optimiza automáticamente para web. Puedes reemplazarla, quitarla y añadir una descripción accesible. Aparece en la tarjeta del archivo, la entrada y la vista previa. El borrador conserva la imagen localmente; al publicar, el editor la sube como archivo separado a `dist/uploads/`, evitando cargar el archivo de artículos con portadas incorporadas. La carga de la imagen y el guardado del artículo son dos commits; un fallo intermedio puede dejar una imagen sin usar, sin perder el borrador.
 
-**Byte**, el perrito con camiseta HTB, saluda al tocarlo en la portada. Sus animaciones respetan el ajuste de movimiento reducido y el control de animaciones del blog. El archivo y el prompt de generación están documentados en `ASSETS.md`.
+**Byte**, el perrito con camiseta HTB, saluda al tocarlo y te acompaña por el archivo, los artículos y el editor. Puedes minimizarlo con el botón − y volver a mostrarlo con 🐾 Byte. Sus animaciones respetan el ajuste de movimiento reducido y el control de animaciones del blog. El archivo y el prompt de generación están documentados en `ASSETS.md`.
 
 Abre **Mi escritorio → Nueva entrada**. Escribe el título, la categoría, la descripción y tu historia. Los botones insertan formato Markdown y **Vista previa** muestra el resultado. Puedes importar `.md` o `.txt`, descargar una copia y añadir imágenes PNG, JPG, WebP o GIF de hasta 500 KB cada una.
 
@@ -53,7 +53,7 @@ Para cambiar cualquier parte del diseño:
 ## Límites de esta primera versión
 
 - El formato admite títulos, negrita, cursiva, listas simples, citas, enlaces, imágenes y código. El HTML del autor se escapa para evitar ejecución de scripts.
-- Las imágenes subidas se incorporan al archivo de artículos. El archivo total se limita a **900 KB** para editarlo con la API utilizada. Para muchas capturas, usa imágenes alojadas en enlaces HTTPS mediante `![Descripción](https://...)`.
+- Las imágenes insertadas dentro del texto se incorporan al archivo de artículos; las portadas se guardan como archivos separados. El archivo total se limita a **900 KB** para editarlo con la API utilizada. Para muchas capturas, usa imágenes alojadas en enlaces HTTPS mediante `![Descripción](https://...)`.
 - Las entradas usan enlaces con `#`; no generan un archivo HTML independiente ni metadatos sociales por artículo.
 - No incluye comentarios, cuentas de lectores ni analíticas.
 - Las fuentes de Google tienen fuentes de respaldo si no hay conexión.
