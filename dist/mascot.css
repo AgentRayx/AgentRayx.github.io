@@ -42,3 +42,16 @@ body{padding-bottom:85px}
 @keyframes byte-travel{0%{transform:translateX(22px) rotate(8deg)}35%{transform:translateX(-8px) translateY(-12px) rotate(-5deg)}70%{transform:translateX(4px) translateY(-4px)}100%{transform:none}}
 @media(max-width:650px){.byte-companion{width:76px;right:9px;bottom:10px}.byte-message{width:190px;font-size:13px}.byte-minimize{width:25px;height:25px;right:-2px}.byte-pet>span{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.byte-companion,.byte-pet img,.byte-hop .byte-pet img{animation:none!important;transition:none!important}}
+.byte-companion[data-pet=moo]{width:132px}
+.byte-companion[data-pet=moo] .byte-pet{padding:6px;background:var(--panel);border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 28px #0006}
+.byte-companion[data-pet=moo] .byte-pet img{border-radius:12px;filter:none;animation:moo-groove 4s ease-in-out infinite;transform-origin:50% 70%}
+.byte-companion[data-pet=moo] .byte-pet span{display:block;padding:9px 0 4px}
+.byte-companion[data-pet=moo].byte-hop .byte-pet img{animation:buddy-wave .7s ease-in-out,moo-groove 4s .7s ease-in-out infinite}
+.pet-controls{display:flex;justify-content:center;gap:5px;margin-top:7px}
+.pet-controls button{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:15px;padding:6px 9px;font-size:12px;cursor:pointer;min-height:30px}
+.pet-controls button:hover{border-color:var(--lime);color:var(--lime)}
+.byte-companion.minimized .pet-controls{display:none}
+.byte-companion.pet-paused img{animation:none!important;transition:none!important}
+@keyframes moo-groove{0%,100%{transform:rotate(-1deg) translateY(0)}25%{transform:rotate(1.2deg) translateY(-3px)}50%{transform:rotate(-.6deg) translateY(0)}75%{transform:rotate(.8deg) translateY(-2px)}}
+@media(max-width:650px){.byte-companion[data-pet=moo]{width:100px}.pet-controls{gap:3px}.pet-controls button{font-size:12px;padding:5px 7px}.byte-companion[data-pet=moo] .byte-pet{border-radius:14px;padding:4px}}
+@media(prefers-reduced-motion:reduce){.byte-companion[data-pet=moo] .byte-pet img,.byte-companion[data-pet=moo].byte-hop .byte-pet img{animation:none!important}}
