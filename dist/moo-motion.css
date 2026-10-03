@@ -1,0 +1,12 @@
+.moo-sprite{display:block!important;width:100%;aspect-ratio:1;background:url('moo-states.png') 0 0/200% 200% no-repeat;image-rendering:pixelated;transform-origin:50% 90%;animation:moo-rest 3s ease-in-out infinite}
+#buddy>img,.byte-companion[data-pet=moo] .byte-pet>img{display:none}
+#buddy{width:100%}.byte-pet{display:flex;flex-direction:column}.byte-pet>.moo-sprite{order:-1;padding:0!important}.byte-companion[data-pet=byte] .moo-sprite{display:none!important}
+[data-moo-state=thinking] .moo-sprite{background-position:100% 0;animation:moo-think 2s ease-in-out infinite}
+[data-moo-state=working] .moo-sprite{background-position:0 100%;animation:moo-type .22s steps(2,end) infinite}
+[data-moo-state=celebrating] .moo-sprite{background-position:100% 100%;animation:moo-jump .65s ease-in-out infinite}
+.byte-companion.pet-paused .moo-sprite{animation:none!important}
+@keyframes moo-rest{50%{transform:translateY(-3px) scaleY(1.015)}}
+@keyframes moo-think{50%{transform:rotate(3deg) translateY(-2px)}}
+@keyframes moo-type{50%{transform:translateY(-2px) rotate(-.6deg)}}
+@keyframes moo-jump{0%,100%{transform:translateY(0)}45%{transform:translateY(-14px) rotate(-4deg)}70%{transform:translateY(-5px) rotate(3deg)}}
+@media(prefers-reduced-motion:reduce){.moo-sprite{animation:none!important}}

@@ -1,0 +1,15 @@
+/* A quiet, woodland farm around the reading space. */
+:root{--bg:#131e19;--panel:#1e2c23;--line:#415141;--ink:#fff5dd;--muted:#b8c5ab}
+body{background:radial-gradient(ellipse at 80% 0,#37563b66,transparent 55%),var(--bg)}
+.header{border-bottom:1px solid #77845a66}.brand{color:#fff1cf}
+.intro{isolation:isolate;border-bottom:5px solid #829351;border-radius:0 0 35px 35px;margin-bottom:36px;padding-left:24px;padding-right:24px;overflow:hidden;background:linear-gradient(180deg,#253e2c66,#34482988)}
+.intro:after{content:'';position:absolute;z-index:-1;inset:0;background:url('farm-scene.svg') center bottom/cover no-repeat;opacity:.65;pointer-events:none}
+.intro>div:first-child{position:relative;z-index:1}.intro .lede{max-width:530px;color:#e2e8cf}.intro .eyebrow{color:#d4eaa7}
+.intro .mascot{position:relative;z-index:1}.mascot-caption{background:#19291ee6;padding:10px;border-radius:20px}
+.card{border-radius:18px;box-shadow:0 6px 0 #0b140c66}.card-top{background-color:#33472c}.card:nth-child(3n+2) .card-top{background-color:#364b3c}.card:nth-child(3n) .card-top{background-color:#514534}
+.card-num{color:#c0ce96}.card-topic{color:#e5e7c8}.btn,.filter,.nav-editor{border-radius:12px}.sidebar{background:#213524}.workspace{background:#16251e;border-radius:18px}
+.owner-gate{max-width:580px;margin:70px auto;padding:40px;border:1px solid var(--line);border-radius:24px;background:var(--panel)}.owner-gate h1{font-size:38px;letter-spacing:-1px}.owner-gate .actions{margin-top:24px}
+footer{border-top:3px double #71855a}footer:after{content:'🌱';font-size:25px}
+@media(max-width:650px){.intro{padding-left:18px;padding-right:18px}.owner-gate{padding:25px;margin:35px auto}}
+
+.profile-avatar{width:130px;height:130px;object-fit:cover;border-radius:50%;border:3px solid var(--line)}.profile-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}.profile-item{min-width:0;margin:16px 0;padding:20px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}.profile-item h3{margin-top:0}.profile section{margin-top:45px}#profile-form input[type=checkbox]{width:auto;margin:16px 8px 16px 0}.byte-companion[data-pet=moo] .byte-pet{background:transparent;border:0;box-shadow:none}.mascot-button img,.byte-companion[data-pet=moo] img{image-rendering:pixelated}

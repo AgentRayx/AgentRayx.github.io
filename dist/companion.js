@@ -1,6 +1,6 @@
 // Your selected companion stays mounted while the blog changes views.
 const pets = {
-  moo: {name:'Moo', image:'moo-gamer.png', alt:'Vaquita gamer con audífonos, frente a su computadora', lines:['¡Muuu! Modo gamer activado.','Un writeup más y descansamos.','Buena música, buenos hallazgos.','Aquí me quedo haciendo compañía.']},
+  moo: {name:'Moo', image:'moo-pixel.png', alt:'Moo pixelado con audífonos y Red Moo', lines:['¡Muuu! Modo gamer activado.','Un writeup más y descansamos.','Buena música, buenos hallazgos.','Aquí me quedo haciendo compañía.']},
   byte: {name:'Byte', image:'byte-htb.png', alt:'Byte con su camiseta de HTB', lines:['¡Guau! Voy contigo.','Una pista a la vez. Tú puedes.','No olvides guardar tus hallazgos.','Un pequeño descanso también ayuda.']}
 };
 let selected = 'moo', paused = false;
@@ -52,7 +52,7 @@ companion.querySelector('.byte-pet').onclick = () => speak(pets[selected].lines[
 function avoidDuplicate() {
   const hero = document.querySelector('#buddy');
   const rect = hero?.getBoundingClientRect();
-  companion.classList.toggle('hero-visible', selected==='byte' && Boolean(rect && rect.bottom > 80 && rect.top < innerHeight - 100));
+  companion.classList.toggle('hero-visible', selected==='moo' && Boolean(rect && rect.bottom > 80 && rect.top < innerHeight - 100));
 }
 window.addEventListener('hashchange', () => {
   speak(location.hash.startsWith('#/editor') ? '¡Vamos a escribir algo gozu!' : location.hash.startsWith('#/post/') ? 'Me quedo contigo mientras lees.' : '¿Cuál exploramos ahora?');
