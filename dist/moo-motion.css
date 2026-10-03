@@ -10,3 +10,18 @@
 @keyframes moo-type{50%{transform:translateY(-2px) rotate(-.6deg)}}
 @keyframes moo-jump{0%,100%{transform:translateY(0)}45%{transform:translateY(-14px) rotate(-4deg)}70%{transform:translateY(-5px) rotate(3deg)}}
 @media(prefers-reduced-motion:reduce){.moo-sprite{animation:none!important}}
+.byte-companion[data-pet=moo]{will-change:transform}
+.byte-companion[data-pet=moo]:hover,.byte-companion[data-pet=moo]:focus-within,.byte-companion[data-pet=moo].pet-paused,.byte-companion[data-pet=moo].minimized,.moo-stopped .byte-companion[data-pet=moo]{animation-play-state:paused}
+.moo-stopped .moo-sprite{animation-play-state:paused!important}
+.byte-companion[data-pet=moo] .byte-message{right:0;width:min(205px,calc(100vw - 30px))}
+@keyframes moo-wander{0%,12%,100%{transform:translateX(0)}35%,48%{transform:translateX(calc(-1 * min(38vw,240px)))}72%,85%{transform:translateX(calc(-1 * min(65vw,420px)))}}
+@media(max-width:650px){@keyframes moo-wander{0%,15%,100%{transform:translateX(0)}45%,65%{transform:translateX(calc(-1 * min(30vw,100px)))}}}
+@media(prefers-reduced-motion:reduce){.byte-companion[data-pet=moo]{animation:none!important}}
+.pet-controls{flex-wrap:wrap}.moo-movement{flex-basis:100%}.byte-companion[data-pet=byte] .moo-movement{display:none}
+.moo-motion-enabled:not([data-motion=off]) .byte-companion[data-pet=moo]{animation-name:moo-wander!important;animation-duration:38s!important;animation-iteration-count:infinite!important;animation-timing-function:ease-in-out!important}
+.moo-motion-enabled:not([data-motion=off]) .moo-sprite{animation:moo-rest 3s ease-in-out infinite!important}
+.moo-motion-enabled[data-moo-state=thinking]:not([data-motion=off]) .moo-sprite{animation:moo-think 2s ease-in-out infinite!important}
+.moo-motion-enabled[data-moo-state=working]:not([data-motion=off]) .moo-sprite{animation:moo-type .22s steps(2,end) infinite!important}
+.moo-motion-enabled[data-moo-state=celebrating]:not([data-motion=off]) .moo-sprite{animation:moo-jump .65s ease-in-out infinite!important}
+.moo-motion-enabled .byte-companion.pet-paused .moo-sprite,.moo-motion-enabled.moo-stopped .moo-sprite{animation-play-state:paused!important}
+.moo-motion-enabled .byte-companion[data-pet=moo]:hover,.moo-motion-enabled .byte-companion[data-pet=moo]:focus-within,.moo-motion-enabled .byte-companion[data-pet=moo].pet-paused,.moo-motion-enabled .byte-companion[data-pet=moo].minimized,.moo-motion-enabled.moo-stopped .byte-companion[data-pet=moo]{animation-play-state:paused!important}
