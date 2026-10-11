@@ -50,7 +50,7 @@ companion.querySelector('.pet-switch').onclick=()=>{selected=selected==='moo'?'b
 companion.querySelector('.pet-pause').onclick=()=>{paused=!paused;try{localStorage.setItem('rayx-companion-paused',paused?'yes':'no');}catch{}renderPet();};
 companion.querySelector('.byte-pet').onclick = () => speak(pets[selected].lines[count++ % pets[selected].lines.length]);
 function avoidDuplicate() {
-  const hero = document.querySelector('#buddy');
+  const hero = document.querySelector('.farm-home-hero');
   const rect = hero?.getBoundingClientRect();
   const heroOnScreen = !!rect && rect.bottom > 0 && rect.top < innerHeight;
   companion.classList.toggle('hero-visible', selected === 'moo' && heroOnScreen && !companion.classList.contains('minimized'));
