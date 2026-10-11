@@ -11,13 +11,16 @@ companion.setAttribute('aria-label', 'Byte, tu compañero de lectura');
 companion.innerHTML = `<p class="byte-message" role="status" aria-live="polite"></p>
   <button class="byte-minimize" aria-label="Ocultar a Byte" title="Ocultar a Byte">−</button>
   <button class="byte-pet" aria-label="Saludar a Byte"><img src="byte-htb.png" width="1280" height="1280" alt="Byte con su camiseta de HTB"><span>BYTE</span></button>
-  <div class="pet-controls"><button class="pet-switch" aria-label="Cambiar compañero">Cambiar</button><button class="pet-pause" aria-label="Pausar animación">Ⅱ</button></div>
+  <button class="pet-menu-toggle" type="button" aria-label="Opciones de Moo" aria-expanded="false" aria-controls="pet-controls">⋯</button>
+  <div class="pet-controls" id="pet-controls"><button class="pet-switch" aria-label="Cambiar compañero">Cambiar</button><button class="pet-pause" aria-label="Pausar animación">Ⅱ</button></div>
   <button class="byte-restore" aria-label="Mostrar compañero">🐾 Compañía</button>`;
 document.body.append(companion);
 let count = 0, timer;
 try { companion.classList.toggle('minimized', localStorage.getItem('rayx-byte-hidden') === 'yes'); } catch {}
 function setHidden(hidden) {
   companion.classList.toggle('minimized', hidden);
+  companion.classList.remove('controls-open');
+  companion.querySelector('.pet-menu-toggle').setAttribute('aria-expanded','false');
   try { localStorage.setItem('rayx-byte-hidden', hidden ? 'yes' : 'no'); } catch {}
   companion.querySelector(hidden ? '.byte-restore' : '.byte-pet').focus();
 }
@@ -44,8 +47,10 @@ function renderPet(){
   companion.querySelector('.byte-restore').setAttribute('aria-label','Mostrar a '+pet.name);
   companion.querySelector('.pet-switch').textContent=selected==='moo'?'Ver a Byte':'Ver a Moo';
   const pause=companion.querySelector('.pet-pause');pause.textContent=paused?'▶':'Ⅱ';pause.setAttribute('aria-label',paused?'Reanudar animación':'Pausar animación');pause.setAttribute('aria-pressed',String(paused));
+  companion.querySelector('.pet-menu-toggle').setAttribute('aria-label','Opciones de '+pet.name);
   avoidDuplicate();
 }
+companion.querySelector('.pet-menu-toggle').onclick=()=>{const open=companion.classList.toggle('controls-open');companion.querySelector('.pet-menu-toggle').setAttribute('aria-expanded',String(open));};
 companion.querySelector('.pet-switch').onclick=()=>{selected=selected==='moo'?'byte':'moo';count=0;try{localStorage.setItem('rayx-companion',selected);}catch{}renderPet();speak(selected==='moo'?'¡Muuu! Me uno al equipo.':'¡Guau! Aquí sigo.');};
 companion.querySelector('.pet-pause').onclick=()=>{paused=!paused;try{localStorage.setItem('rayx-companion-paused',paused?'yes':'no');}catch{}renderPet();};
 companion.querySelector('.byte-pet').onclick = () => speak(pets[selected].lines[count++ % pets[selected].lines.length]);
