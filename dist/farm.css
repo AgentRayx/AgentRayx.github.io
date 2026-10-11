@@ -13,3 +13,28 @@ footer{border-top:3px double #71855a}footer:after{content:'🌱';font-size:25px}
 @media(max-width:650px){.intro{padding-left:18px;padding-right:18px}.owner-gate{padding:25px;margin:35px auto}}
 
 .profile-avatar{width:130px;height:130px;object-fit:cover;border-radius:50%;border:3px solid var(--line)}.profile-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}.profile-item{min-width:0;margin:16px 0;padding:20px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}.profile-item h3{margin-top:0}.profile section{margin-top:45px}#profile-form input[type=checkbox]{width:auto;margin:16px 8px 16px 0}.byte-companion[data-pet=moo] .byte-pet{background:transparent;border:0;box-shadow:none}.mascot-button img,.byte-companion[data-pet=moo] img{image-rendering:pixelated}
+
+/* Lectura granjera: shell editorial, índice, traducción y MOO */
+.article-layout{width:min(1180px,calc(100% - 96px));margin:0 auto;display:grid;grid-template-columns:minmax(0,760px) 250px;gap:42px;align-items:start}
+.article{width:100%;max-width:none;margin:60px 0 90px;min-width:0}
+.article-rail{position:sticky;top:22px;max-height:calc(100vh - 44px);overflow:auto;padding:12px 2px 20px;scrollbar-color:#697d50 transparent;scrollbar-width:thin}
+.article-contents,.translation-card{border:1px solid #60754b;background:linear-gradient(155deg,#263e2c,#19291f);border-radius:16px;padding:17px;margin-bottom:15px;box-shadow:0 12px 35px #070e09aa}
+.rail-title{margin:0;color:#d9eca9;font:700 11px monospace;letter-spacing:1.2px}
+.article-contents ol{list-style:none;margin:14px 0 0;padding:0;border-left:1px solid #61754d}
+.article-contents li{margin:0;padding:0}.article-contents a{display:block;padding:8px 10px;color:#bdc9b3;font-size:13px;line-height:1.5;border-left:2px solid transparent;margin-left:-2px;transition:color .18s,background .18s,border-color .18s}
+.article-contents a:hover,.article-contents a.current{color:#e0f9a4;background:#82935121;border-color:#c2f970}.article-contents .toc-level-3 a{padding-left:22px;font-size:12px}.toc-empty{padding:10px;color:var(--muted);font-size:12px}
+.translation-card select{margin:13px 0 9px;background:#14231a;border-color:#506744;padding:10px 12px}.translate-button{width:100%;border:1px solid #a2ba70;background:#718744;color:#fff7df;border-radius:10px;padding:10px 12px;font-weight:700;transition:transform .18s,filter .18s}.translate-button:hover{transform:translateY(-2px);filter:brightness(1.12)}.translation-note{color:#aebb9f;font-size:11px;line-height:1.5;margin:9px 0 0}
+.rail-moo{min-height:120px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;border:1px dashed #64764f;background:#1a2a20;border-radius:15px;padding:12px;color:#cbdda3;font:10px monospace;letter-spacing:.8px}.rail-moo img{height:92px;width:92px;object-fit:contain;image-rendering:pixelated;animation:moo-float 3.2s ease-in-out infinite}.rail-moo span{opacity:.8}
+.prose h2,.prose h3{scroll-margin-top:22px}
+.prose pre.terminal{padding:0;overflow:auto;border:1px solid #758955;border-radius:14px;background:#101a13;box-shadow:0 16px 45px #071009bb,inset 3px 0 #c2f970;color:#edf1de;font-size:14px}
+.prose pre.terminal::before{display:none}.terminal-bar{height:44px;position:sticky;left:0;display:flex;align-items:center;justify-content:space-between;min-width:max-content;padding:0 15px;background:linear-gradient(180deg,#354a35,#243528);border-bottom:1px solid #5c7048;color:#d4e1b7}
+.terminal-label{display:flex;align-items:center;gap:8px;font:700 11px monospace;letter-spacing:1px}.terminal-label i{width:8px;height:8px;border-radius:50%;background:#c2f970;box-shadow:0 0 12px #c2f97899}.terminal-label span{color:#9bac8a;font-weight:400}
+.copy-code{border:1px solid #697d55;background:#283c2b;color:#e9efdb;border-radius:7px;padding:5px 10px;font:12px monospace}.copy-code:hover{background:#3c553a;border-color:#c2f970}
+.prose pre.terminal code{display:block;min-width:max-content;padding:12px 0 14px;background:none}.code-line{display:grid;grid-template-columns:3.2em max-content;gap:1.1em;min-height:1.75em;padding-right:22px}.line-number{user-select:none;text-align:right;color:#82937a;border-right:1px solid #344834;padding-right:.75em}.line-text{white-space:pre}
+@keyframes moo-float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-5px) rotate(2deg)}}
+@media(max-width:1000px){.article-layout{grid-template-columns:minmax(0,1fr);gap:0}.article{margin-bottom:30px}.article-rail{position:static;max-height:none;display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:55px;padding:0}.article-contents,.translation-card{margin:0}.rail-moo{grid-column:1/-1;min-height:100px;flex-direction:row}.rail-moo img{height:80px;width:80px}}
+@media(max-width:800px){.article-layout{width:calc(100% - 40px)}}
+@media(max-width:520px){.article-layout{width:calc(100% - 32px)}.article{margin-top:36px}.article-rail{grid-template-columns:1fr}.rail-moo{grid-column:auto}.prose pre.terminal{font-size:12px;border-radius:10px}.code-line{grid-template-columns:2.4em max-content;gap:.8em}.terminal-bar{height:40px}}
+@media(prefers-reduced-motion:reduce){.rail-moo img{animation:none}}
+/* Sintaxis coordinada con la paleta verde del rancho */
+.prose .tok-command{color:#c2f970;font-weight:700}.prose .tok-option{color:#f4d58d}.prose .tok-string{color:#a6e3a1}.prose .tok-variable{color:#85d7c7}.prose .tok-keyword{color:#dce8a7;font-weight:650}.prose .tok-comment{color:#91a48f;font-style:italic}.prose .tok-number{color:#efb66f}.prose .tok-operator{color:#c4d2b0}
