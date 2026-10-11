@@ -52,7 +52,8 @@ companion.querySelector('.byte-pet').onclick = () => speak(pets[selected].lines[
 function avoidDuplicate() {
   const hero = document.querySelector('#buddy');
   const rect = hero?.getBoundingClientRect();
-  companion.classList.toggle('hero-visible', false);
+  const heroOnScreen = !!rect && rect.bottom > 0 && rect.top < innerHeight;
+  companion.classList.toggle('hero-visible', selected === 'moo' && heroOnScreen && !companion.classList.contains('minimized'));
 }
 window.addEventListener('hashchange', () => {
   speak(location.hash.startsWith('#/editor') ? '¡Vamos a escribir algo gozu!' : location.hash.startsWith('#/post/') ? 'Me quedo contigo mientras lees.' : '¿Cuál exploramos ahora?');
