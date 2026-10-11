@@ -1,13 +1,21 @@
-.moo-sprite{display:block!important;width:100%;aspect-ratio:1;background:url('moo-states.png') 0 0/200% 200% no-repeat;image-rendering:pixelated;transform-origin:50% 90%;animation:moo-rest 3s ease-in-out infinite}
+.moo-sprite{display:block!important;position:relative;width:100%;aspect-ratio:1;background:url('moo-states.png') 0 0/200% 200% no-repeat;image-rendering:pixelated;transform-origin:50% 90%;animation:moo-rest 3s ease-in-out infinite}
 #buddy>img,.byte-companion[data-pet=moo] .byte-pet>img{display:none}
 #buddy{width:100%}.byte-pet{display:flex;flex-direction:column}.byte-pet>.moo-sprite{order:-1;padding:0!important}.byte-companion[data-pet=byte] .moo-sprite{display:none!important}
 [data-moo-state=thinking] .moo-sprite{background-position:100% 0;animation:moo-think 2s ease-in-out infinite}
 [data-moo-state=working] .moo-sprite{background-position:0 100%;animation:moo-type .22s steps(2,end) infinite}
 [data-moo-state=celebrating] .moo-sprite{background-position:100% 100%;animation:moo-jump 1.2s ease-in-out infinite}
+[data-moo-state=looking] .moo-sprite{background-position:0 0;animation:moo-look 1.8s ease-in-out infinite}
+[data-moo-state=walking] .moo-sprite{background-position:0 0;animation:moo-step .52s ease-in-out infinite}
+[data-moo-state=resting] .moo-sprite{background-position:0 0;animation:moo-nap 2.6s ease-in-out infinite}
+[data-moo-state=thinking] .moo-sprite:after,[data-moo-state=resting] .moo-sprite:after{position:absolute;top:5%;right:9%;color:#d4ff83;font:700 clamp(12px,2vw,22px) monospace;text-shadow:0 0 10px #a9e95c;animation:moo-thought 1.5s ease-in-out infinite;pointer-events:none}[data-moo-state=thinking] .moo-sprite:after{content:'?'}[data-moo-state=resting] .moo-sprite:after{content:'z·z'}
 .byte-companion.pet-paused .moo-sprite{animation:none!important}
 @keyframes moo-rest{50%{transform:translateY(-3px) scaleY(1.015)}}
 @keyframes moo-think{50%{transform:rotate(3deg) translateY(-2px)}}
 @keyframes moo-type{50%{transform:translateY(-2px) rotate(-.6deg)}}
+@keyframes moo-look{0%,100%{transform:rotate(-5deg) translateX(-2px)}50%{transform:rotate(6deg) translateX(3px)}}
+@keyframes moo-step{0%,100%{transform:translate(0,0) rotate(-2deg)}25%{transform:translate(-4px,-7px) rotate(3deg)}50%{transform:translate(-8px,0) rotate(-2deg)}75%{transform:translate(-4px,-6px) rotate(2deg)}}
+@keyframes moo-nap{0%,100%{transform:translateY(0) scale(1,.94) rotate(-3deg)}50%{transform:translateY(2px) scale(1.03,.9) rotate(-4deg)}}
+@keyframes moo-thought{50%{transform:translateY(-6px);opacity:.55}}
 @keyframes moo-jump{0%,13%,100%{transform:translateY(0) rotate(0) scale(1)}20%{transform:translateY(2px) scale(1.08,.86)}43%{transform:translateY(-34px) rotate(-5deg) scale(.96,1.06)}59%{transform:translateY(-29px) rotate(3deg) scale(.99,1.03)}76%{transform:translateY(0) scale(1.1,.82)}86%{transform:translateY(-5px) scale(.98,1.02)}}
 @media(prefers-reduced-motion:reduce){.moo-sprite{animation:none!important}}
 .byte-companion[data-pet=moo]{will-change:transform}
@@ -23,5 +31,10 @@
 .moo-motion-enabled[data-moo-state=thinking]:not([data-motion=off]) .moo-sprite{animation:moo-think 2s ease-in-out infinite!important}
 .moo-motion-enabled[data-moo-state=working]:not([data-motion=off]) .moo-sprite{animation:moo-type .22s steps(2,end) infinite!important}
 .moo-motion-enabled[data-moo-state=celebrating]:not([data-motion=off]) .moo-sprite{animation:moo-jump 1.2s ease-in-out infinite!important}
+.moo-motion-enabled[data-moo-state=looking]:not([data-motion=off]) .moo-sprite{animation:moo-look 1.8s ease-in-out infinite!important}
+.moo-motion-enabled[data-moo-state=walking]:not([data-motion=off]) .moo-sprite{animation:moo-step .52s ease-in-out infinite!important}
+.moo-motion-enabled[data-moo-state=resting]:not([data-motion=off]) .moo-sprite{animation:moo-nap 2.6s ease-in-out infinite!important}
+.moo-motion-enabled:not([data-motion=off]) .byte-companion[data-pet=moo]{animation-play-state:paused!important}
+.moo-motion-enabled[data-moo-state=walking]:not([data-motion=off]) .byte-companion[data-pet=moo]:not(:hover):not(:focus-within):not(.pet-paused):not(.minimized){animation-play-state:running!important}
 .moo-motion-enabled .byte-companion.pet-paused .moo-sprite,.moo-motion-enabled.moo-stopped .moo-sprite{animation-play-state:paused!important}
 .moo-motion-enabled .byte-companion[data-pet=moo]:hover,.moo-motion-enabled .byte-companion[data-pet=moo]:focus-within,.moo-motion-enabled .byte-companion[data-pet=moo].pet-paused,.moo-motion-enabled .byte-companion[data-pet=moo].minimized,.moo-motion-enabled.moo-stopped .byte-companion[data-pet=moo]{animation-play-state:paused!important}
